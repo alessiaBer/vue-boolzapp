@@ -48,14 +48,35 @@
                 </div>
                 <!-- /.search_input -->
                 <div class="preview">
-                    <div class="chat_preview"></div>
+                    <div 
+                    class="chat_preview d-flex justify-content-between p-2"
+                    :class="is_active ? 'active' : ''">
+                        <div class="chat_preview_left d-flex">
+                            <img class="contact_avatar" src="./assets/img/avatar_1.jpg" alt=".. avatar">
+                            <div class="contact_info d-flex flex-column justify-content-center">
+                                <span class="contact_name d-block">
+                                    Michele
+                                </span>
+                                <span class="last_message_text">
+                                    Ultimo messaggio inviato
+                                </span>
+                            </div>
+                        </div>
+                        <div class="chat_preview_right">
+                            <div class="last_message_time">
+                                12:00
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- /.preview -->
             </div>
             <!-- /#app_side_bar -->
+            
             <div id="app_chat">
                 <div class="chat_header d-flex justify-content-between align-items-center">
                     <div class="active_contact d-flex">
-                        <img src="./assets/img/avatar_1.jpg" alt=".. avatar">
+                        <img class="contact_avatar" src="./assets/img/avatar_1.jpg" alt=".. avatar">
                         <div class="contact_info d-flex flex-column justify-content-center">
                             <span class="contact_name d-block">
                                 Michele

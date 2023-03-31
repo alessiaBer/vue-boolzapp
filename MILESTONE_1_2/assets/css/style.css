@@ -7,6 +7,11 @@
     --bz-header-icons: #b1b1b1;
     --bz-enable-alert: #9cdaf8;
     --bz-input-icons: #6c7375;
+    --bz-light: #fff;
+}
+
+body {
+background: linear-gradient(180deg, rgba(62,146,135) 20%, rgba(216,219,214) 20%);
 }
 /* #endregion Common */
 /* #region Utilities */
@@ -25,10 +30,11 @@
 }
 
 .my_avatar > img,
-.active_contact > img {
+.contact_avatar {
     border-radius: 50%;
     height: 45px;
-    padding-right: 0.5rem;
+    aspect-ratio: 1 / 1;
+    margin-right: 0.5rem;
 }
 
 .my_name,
@@ -55,7 +61,7 @@ span.receive {
 
 .enable_alert i {
     color: var(--bz-enable-alert);
-    background-color: white;
+    background-color: var(--bz-light);
     padding: 0.4rem;
     font-size: 1.2rem;
     border-radius: 50%;
@@ -75,17 +81,30 @@ span.receive {
 
 
 .input-group-text,
-.input-group input {
+.input-group input,
+.last_message_text,
+.last_message_time {
     font-size: 0.7rem;
 }
 
 .preview {
-    height: 100% - 163px;
+    height: calc(100% - 163px);
     overflow-y: auto;
+    background-color: var(--bz-light);
 }
 
 .chat_preview {
     height: 60px;
+    background-color: var(--bz-light);
+    border-top: 1px solid var(--bz-active-chat);
+}
+
+.chat_preview [class*="last_message_"] {
+    color: var(--bz-input-icons);
+}
+
+.chat_preview.active {
+    background-color: var(--bz-active-chat);
 }
 /* #endregion Sidebar */
 /* #region Chat */
