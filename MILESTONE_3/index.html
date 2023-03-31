@@ -99,11 +99,11 @@
                     </div>
                 </div>
                 <!-- /.chat_header -->
-                <div class="chat_body p-5 d-flex flex-column">
-                    <div class="message m-2 d-flex justify-content-between"
+                <div class="chat_body p-4 d-flex flex-column">
+                    <div class="message m-2 d-flex gap-2 justify-content-between"
                     v-for="(element, index) in contacts[activeContact].messages"
                     :class="element.status === 'sent' ? 'sent' : 'received'">
-                        <span class="span_message align-self-start">{{element.message}}</span>  
+                        <span class="span_message align-self-start d-flex flex-wrap">{{element.message}}</span>  
                         <span class="span_date d-block text-end align-self-end">
                             {{splitDate(element, index)}}</span>  
                     </div>

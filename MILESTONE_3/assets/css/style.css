@@ -122,13 +122,19 @@ span.enable {
     height: calc(100% - 120px);
     overflow-y: auto;
     background-image: url('../img/mine.jpg');
+    overflow-x: hidden;
 }
 
 .chat_body .message {
     font-size: 0.7rem;
     padding: 0.4rem;
     border-radius: 0.5rem;
-    width: 40%;
+    max-width: 60%;
+}
+
+.span_message {
+    width: 90%;
+    overflow-wrap: break-word;
 }
 
 .span_date {
