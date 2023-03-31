@@ -11,7 +11,46 @@
 </head>
 <body>
     
-    <div id="app"></div>
+    <div id="app">
+        <div id="app_container" class="d-flex">
+            <div id="app_side_bar">
+                <div class="sidebar_header d-flex justify-content-between align-items-center">
+                    <div class="my_avatar">
+                        <img class="" src="./assets/img/avatar_io.jpg" alt="My Avatar">
+                        <span class="my_name">Alessia</span>
+                    </div>
+                    <div class="my_settings">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- /#app_side_bar -->
+            <div id="app_chat">
+                <div class="chat_header d-flex justify-content-between align-items-center">
+                    <div class="active_contact d-flex">
+                        <img src="./assets/img/avatar_1.jpg" alt=".. avatar">
+                        <div class="contact_info d-flex flex-column justify-content-center">
+                            <span class="contact_name d-block">
+                                Michele
+                            </span>
+                            <span class="last_access">
+                                Ultimo accesso oggi alle ore 12:00
+                            </span>
+                        </div>
+                    </div>
+                    <div class="chat_settings">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- /#app_chat -->
+        </div>
+        <!-- /#app_container -->
+    </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./assets/js/app.js"></script>

@@ -1,0 +1,48 @@
+:root {
+    --bz-header-bg: #eaeaea;
+    --bz-active-chat: #e9ebeb;
+    --bz-header-icons: #b1b1b1;
+}
+
+#app_container {
+    max-width: 1000px;
+    height: calc(100vh - 4rem);
+    margin: 2rem auto;
+}
+
+#app_side_bar {
+    width: 40%;
+}
+
+#app_chat {
+    width: 60%;
+}
+
+.sidebar_header,
+.chat_header {
+    height: 60px;
+    background-color: var(--bz-header-bg);
+    padding: 0 0.5rem;
+}
+
+.my_avatar > img,
+.active_contact > img {
+    border-radius: 50%;
+    height: 45px;
+    padding-right: 0.5rem;
+}
+
+.my_name,
+.contact_info > .contact_name {
+    font-size: 0.9rem;
+}
+
+.active_contact .last_access {
+    font-size: 0.7rem;
+}
+
+[class$="_settings"] > i {
+    color: var(--bz-header-icons);
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+}
