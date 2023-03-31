@@ -16,12 +16,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            newMessage: '',
             activeContact: 0,
-            newMessage: {
-                date: '',
-                message: '',
-                status: 'sent'
-            },
             newReceivedMessage: {
                 date: '',
                 message: 'lol',
@@ -205,18 +201,24 @@ createApp({
             this.activeContact = i
         },
         sendMessage(i) {
-            const new_message = {...this.newMessage};
             const new_message_date = new Date();
             const now = [new_message_date.getHours(), (new_message_date.getMinutes()< 10 ? '0' : '') + new_message_date.getMinutes(), new_message_date.getSeconds()].join(':');
-            new_message.date = now;
-            new_message.message = this.newMessage.message;
+            const new_message = {
+                date: now,
+                message: this.newMessage,
+                status: 'sent'
+            };
+
             this.contacts[i].messages.push(new_message);
             this.newMessage = ''
 
             setTimeout(this.receive_message, 3000);
         },
-        receive_message(value) {
+        receive_message() {
             const new_received_message = {...this.newReceivedMessage};
+            const new_received_date = new Date();
+            const now = [new_received_date.getHours(), (new_received_date.getMinutes()< 10 ? '0' : '') + new_received_date.getMinutes(), new_received_date.getSeconds()].join(':');
+            new_received_message.date = now;
             this.contacts[this.activeContact].messages.push(new_received_message)
         }
     }
