@@ -17,6 +17,11 @@ createApp({
     data() {
         return {
             activeContact: 0,
+            newMessage: {
+                date: '',
+                message: '',
+                status: 'sent'
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -193,6 +198,15 @@ createApp({
         },
         selectChat(i) {
             this.activeContact = i
+        },
+        sendMessage(i, array) {
+            const new_message = {...this.newMessage};
+            const new_message_date = new Date();
+            console.log(new_message_date);
+            const now = [new_message_date.getHours(), new_message_date.getMinutes(), new_message_date.getSeconds()].join(':');
+            new_message.date = now;
+            new_message.message = this.newMessage.message;
+            array.push(new_message)
         }
     }
 }).mount('#app')

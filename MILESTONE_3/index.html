@@ -111,7 +111,9 @@
                 <!-- /.chat_body -->
                 <div class="chat_input d-flex align-items-center">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                    <input type="text" class="form-control" placeholder="Scrivi un messaggio"
+                    v-model="newMessage.message"
+                    @keyup.enter="sendMessage(index, contacts[activeContact].messages)">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
                 <!-- /.chat_input -->
