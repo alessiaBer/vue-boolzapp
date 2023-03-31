@@ -19,7 +19,7 @@ body {
 #app_container {
     max-width: 1000px;
     height: calc(100vh - 3rem);
-    margin: 2rem auto;
+    margin: 1.5rem auto;
 }
 
 .sidebar_header,
