@@ -50,21 +50,24 @@
                 <div class="preview">
                     <div 
                     class="chat_preview d-flex justify-content-between p-2"
-                    :class="is_active ? 'active' : ''">
+                    :class="activeContact === index ? 'active' : ''"
+                    v-for="(contact, index) in contacts">
                         <div class="chat_preview_left d-flex">
-                            <img class="contact_avatar" src="./assets/img/avatar_1.jpg" alt=".. avatar">
+                            <img class="contact_avatar" 
+                            :src="'./assets' + contact.avatar" 
+                            :alt="contact.name">
                             <div class="contact_info d-flex flex-column justify-content-center">
                                 <span class="contact_name d-block">
-                                    Michele
+                                    {{contact.name}}
                                 </span>
                                 <span class="last_message_text">
-                                    Ultimo messaggio inviato
+                                    ...Ultimo messaggio inviato...
                                 </span>
                             </div>
                         </div>
                         <div class="chat_preview_right">
                             <div class="last_message_time">
-                                12:00
+                                ...12:00...
                             </div>
                         </div>
                     </div>
@@ -72,11 +75,13 @@
                 <!-- /.preview -->
             </div>
             <!-- /#app_side_bar -->
-            
+
             <div id="app_chat">
                 <div class="chat_header d-flex justify-content-between align-items-center">
                     <div class="active_contact d-flex">
-                        <img class="contact_avatar" src="./assets/img/avatar_1.jpg" alt=".. avatar">
+                        <img class="contact_avatar" 
+                        :src="'./assets' + contacts[activeContact].avatar" 
+                        :alt="contacts[activeContact].name">
                         <div class="contact_info d-flex flex-column justify-content-center">
                             <span class="contact_name d-block">
                                 Michele
@@ -93,7 +98,13 @@
                     </div>
                 </div>
                 <!-- /.chat_header -->
-                <div class="chat_body"></div>
+                <div class="chat_body p-5">
+                    <div class="message"
+                    :class="element.status === 'sent' ? 'sent' : 'received'"
+                    v-for="(element, index) in contacts[activeContact].messages">
+                        <p>{{element.message}}</p>
+                    </div>
+                </div>
                 <!-- /.chat_body -->
                 <div class="chat_input d-flex align-items-center">
                     <i class="fa-regular fa-face-smile"></i>

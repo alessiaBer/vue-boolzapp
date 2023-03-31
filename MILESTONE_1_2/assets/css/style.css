@@ -8,16 +8,17 @@
     --bz-enable-alert: #9cdaf8;
     --bz-input-icons: #6c7375;
     --bz-light: #fff;
+    --bz-sent-mex: #dcf5bf;
 }
 
 body {
-background: linear-gradient(180deg, rgba(62,146,135) 20%, rgba(216,219,214) 20%);
+    background: linear-gradient(180deg, rgba(62,146,135) 20%, rgba(216,219,214) 20%);
 }
 /* #endregion Common */
 /* #region Utilities */
 #app_container {
     max-width: 1000px;
-    height: calc(100vh - 4rem);
+    height: calc(100vh - 3rem);
     margin: 2rem auto;
 }
 
@@ -121,6 +122,14 @@ span.enable {
     height: calc(100% - 120px);
     overflow-y: auto;
     background-image: url('../img/mine.jpg');
+}
+
+.chat_body > .message.sent {
+    background-color: var(--bz-sent-mex);
+}
+
+.chat_body > .message.received {
+    background-color: var(--bz-light);
 }
 
 .chat_input i {
