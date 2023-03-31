@@ -124,13 +124,26 @@ span.enable {
     background-image: url('../img/mine.jpg');
 }
 
-.chat_body > .message.sent {
-    background-color: var(--bz-sent-mex);
+.chat_body .message {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 40%;
 }
 
-.chat_body > .message.received {
-    background-color: var(--bz-light);
+.span_date {
+    font-size: 0.45rem;
 }
+
+.chat_body > .sent {
+    background-color: var(--bz-sent-mex);
+    align-self: flex-end;
+}
+
+.chat_body > .received {
+    background-color: var(--bz-light);
+    align-self: flex-start;
+} 
 
 .chat_input i {
     padding: 0 1rem;

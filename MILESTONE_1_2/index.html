@@ -98,11 +98,13 @@
                     </div>
                 </div>
                 <!-- /.chat_header -->
-                <div class="chat_body p-5">
-                    <div class="message"
-                    :class="element.status === 'sent' ? 'sent' : 'received'"
-                    v-for="(element, index) in contacts[activeContact].messages">
-                        <p>{{element.message}}</p>
+                <div class="chat_body p-5 d-flex flex-column">
+                    <div class="message m-2"
+                    v-for="(element, index) in contacts[activeContact].messages"
+                    :class="element.status === 'sent' ? 'sent' : 'received'">
+                        <span class="span_message">{{element.message}}</span>  
+                        <span class="span_date d-block text-end">
+                            {{splitDate(element, index)}}</span>  
                     </div>
                 </div>
                 <!-- /.chat_body -->
