@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Boolzapp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    
+    <div id="app">
+        <div id="app_container" class="d-flex">
+            <div id="app_side_bar">
+                <div class="sidebar_header d-flex justify-content-between align-items-center">
+                    <div class="my_avatar">
+                        <img class="" src="./assets/img/avatar_io.jpg" alt="My Avatar">
+                        <span class="my_name">Alessia</span>
+                    </div>
+                    <div class="my_settings">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <!-- /.sidebar_header -->
+                <div class="enable_alert d-flex align-items-center px-3">
+                    <div class="enable_icon pe-2">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="alert_text d-flex flex-column justify-content-center">
+                        <span class="receive">Ricevi notifiche di nuovi messaggi</span>
+                        <span class="enable">
+                            <a href="#">Attiva notifiche desktop</a>
+                        </span>
+                    </div>
+                </div>
+                <!-- /.enable_alert -->
+                <div class="search_input d-flex align-items-center">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+                <!-- /.search_input -->
+                <div class="preview">
+                    <div 
+                    class="chat_preview d-flex justify-content-between p-2"
+                    :class="activeContact === index ? 'active' : ''"
+                    v-for="(contact, index) in contacts"
+                    @click="selectChat(index)">
+                        <div class="chat_preview_left d-flex">
+                            <img class="contact_avatar" 
+                            :src="'./assets' + contact.avatar" 
+                            :alt="contact.name">
+                            <div class="contact_info d-flex flex-column justify-content-center">
+                                <span class="contact_name d-block">
+                                    {{contact.name}}
+                                </span>
+                                <span class="last_message_text">
+                                    ...Ultimo messaggio inviato...
+                                </span>
+                            </div>
+                        </div>
+                        <div class="chat_preview_right">
+                            <div class="last_message_time">
+                                ...12:00...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.preview -->
+            </div>
+            <!-- /#app_side_bar -->
+
+            <div id="app_chat">
+                <div class="chat_header d-flex justify-content-between align-items-center">
+                    <div class="active_contact d-flex">
+                        <img class="contact_avatar" 
+                        :src="'./assets' + contacts[activeContact].avatar" 
+                        :alt="contacts[activeContact].name">
+                        <div class="contact_info d-flex flex-column justify-content-center">
+                            <span class="contact_name d-block">
+                                {{contacts[activeContact].name}}
+                            </span>
+                            <span class="last_access">
+                                Ultimo accesso oggi alle ore 12:00
+                            </span>
+                        </div>
+                    </div>
+                    <div class="chat_settings">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <!-- /.chat_header -->
+                <div class="chat_body p-5 d-flex flex-column">
+                    <div class="message m-2 d-flex justify-content-between"
+                    v-for="(element, index) in contacts[activeContact].messages"
+                    :class="element.status === 'sent' ? 'sent' : 'received'">
+                        <span class="span_message align-self-start">{{element.message}}</span>  
+                        <span class="span_date d-block text-end align-self-end">
+                            {{splitDate(element, index)}}</span>  
+                    </div>
+                </div>
+                <!-- /.chat_body -->
+                <div class="chat_input d-flex align-items-center">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input type="text" class="form-control" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+                <!-- /.chat_input -->
+            </div>
+            <!-- /#app_chat -->
+        </div>
+        <!-- /#app_container -->
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
