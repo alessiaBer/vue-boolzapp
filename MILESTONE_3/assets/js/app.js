@@ -22,6 +22,11 @@ createApp({
                 message: '',
                 status: 'sent'
             },
+            newReceivedMessage: {
+                date: '',
+                message: 'lol',
+                status: 'received'
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -199,14 +204,20 @@ createApp({
         selectChat(i) {
             this.activeContact = i
         },
-        sendMessage(i, array) {
+        sendMessage(i) {
             const new_message = {...this.newMessage};
             const new_message_date = new Date();
-            console.log(new_message_date);
-            const now = [new_message_date.getHours(), new_message_date.getMinutes(), new_message_date.getSeconds()].join(':');
+            const now = [new_message_date.getHours(), (new_message_date.getMinutes()< 10 ? '0' : '') + new_message_date.getMinutes(), new_message_date.getSeconds()].join(':');
             new_message.date = now;
             new_message.message = this.newMessage.message;
-            array.push(new_message)
+            this.contacts[i].messages.push(new_message);
+            this.newMessage = ''
+
+            setTimeout(this.receive_message, 3000);
+        },
+        receive_message(value) {
+            const new_received_message = {...this.newReceivedMessage};
+            this.contacts[this.activeContact].messages.push(new_received_message)
         }
     }
 }).mount('#app')
