@@ -103,21 +103,21 @@
                 <div class="chat_body p-4 d-flex flex-column">
                     <div class="message m-2 d-flex gap-2 justify-content-between"
                     v-for="(element, index) in contacts[activeContact].messages"
-                    :class="element.status === 'sent' ? 'sent' : 'received'">
+                    :class="element.status === 'sent' ? 'sent' : 'received'"
+                    @mouseover="isShow()"
+                    >
                         <span class="span_message align-self-start d-flex flex-wrap">{{element.message}}</span>  
                         <div class="message_right d-flex flex-column justify-content-between">
-                            <div class="dropdown_delete"
-                            @mouseover="isShow()"
-                            @mouseleave="isHidden(); dropdownShow = false">
+                            <div class="dropdown_delete position-relative">
                                 <span class="dropdown-icon text-end"
                                 :class="show === true ? 'show' : 'hidden'"
                                 @click="showDropdown()">
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </span>
-                                <ul class="dropdown_menu list-unstyled"
+                                <ul class="dropdown_menu list-unstyled position-absolute"
                                 :class="dropdownShow === true ? 'show' : 'hidden'">
-                                    <li><a href="#">Message info</a></li>
-                                    <li><a href="#">Delete message</a></li>
+                                    <li>Message info</li>
+                                    <li>Delete message</li>
                                 </ul>
                             </div>
                             <span class="span_date text-end">
