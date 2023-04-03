@@ -246,6 +246,12 @@ createApp({
         deleteMessage(i) {
             const this_message = this.contacts[this.activeContact].messages[i]
             this.contacts[this.activeContact].messages.pop(this_message) 
+        },
+        lastMessage(index) {
+            const message_array = this.contacts[index].messages
+            const last_messageIndex = message_array.length - 1;
+
+            return last_messageIndex
         }
     }
 }).mount('#app')
