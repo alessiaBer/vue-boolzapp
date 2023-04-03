@@ -57,6 +57,14 @@ createApp({
                 message: 'lol',
                 status: 'received'
             },
+            automatic_replies: [
+                'Per un punto Martin perse la capa',
+                'Non val sapere a chi ha fortuna contra',
+                'Se ti perdi tuo danno',
+                'Non ti fidar di me se il cuor ti manca',
+                'L\'essenziale è invisibile agli occhi',
+                'Si sta come d\'autunno sugli alberi le foglie'
+            ],
             contacts: [
                 {
                     name: 'Michele',
