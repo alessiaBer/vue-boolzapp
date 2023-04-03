@@ -138,9 +138,19 @@ span.enable {
     overflow-wrap: break-word;
 }
 
-.dropdown-icon {
-    visibility: hidden;
+.hidden {
+    display: none;
 }
+
+.show {
+    display: block;
+}
+
+.dropdown_delete {
+    width: 13px;
+    height: 13px;
+}
+
 
 .dropdown-icon,
 .span_date {

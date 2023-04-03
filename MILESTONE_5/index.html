@@ -105,10 +105,21 @@
                     v-for="(element, index) in contacts[activeContact].messages"
                     :class="element.status === 'sent' ? 'sent' : 'received'">
                         <span class="span_message align-self-start d-flex flex-wrap">{{element.message}}</span>  
-                        <div class="message_right d-flex flex-column">
-                            <span class="dropdown-icon text-end">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
+                        <div class="message_right d-flex flex-column justify-content-between">
+                            <div class="dropdown_delete"
+                            @mouseover="isShow()"
+                            @mouseleave="isHidden(); dropdownShow = false">
+                                <span class="dropdown-icon text-end"
+                                :class="show === true ? 'show' : 'hidden'"
+                                @click="showDropdown()">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </span>
+                                <ul class="dropdown_menu list-unstyled"
+                                :class="dropdownShow === true ? 'show' : 'hidden'">
+                                    <li><a href="#">Message info</a></li>
+                                    <li><a href="#">Delete message</a></li>
+                                </ul>
+                            </div>
                             <span class="span_date text-end">
                                 {{splitDate(element, index)}}
                             </span>  

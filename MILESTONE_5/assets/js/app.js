@@ -25,6 +25,8 @@ createApp({
             newMessage: '',
             activeContact: 0,
             resultedContacts: '',
+            show: false,
+            dropdownShow: false,
             newReceivedMessage: {
                 date: '',
                 message: 'lol',
@@ -227,6 +229,19 @@ createApp({
             const now = [new_received_date.getHours(), (new_received_date.getMinutes()< 10 ? '0' : '') + new_received_date.getMinutes(), new_received_date.getSeconds()].join(':');
             new_received_message.date = now;
             this.contacts[this.activeContact].messages.push(new_received_message)
+        },
+        isShow() {
+            this.show = true;
+        },
+        isHidden() {
+            this.show = false;
+        },
+        showDropdown() {
+            if (this.dropdownShow === false) {
+                this.dropdownShow = true;
+            } else if (this.dropdownShow === true) {
+                this.dropdownShow = false
+            }
         }
     }
 }).mount('#app')
