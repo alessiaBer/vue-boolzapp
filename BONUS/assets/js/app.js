@@ -264,6 +264,8 @@ createApp({
 
             this.computerIsWriting = true;
             setTimeout(this.receive_message, 3000);
+            setTimeout(this.isComputerOnline, 3000);
+            setTimeout(this.isComputerOffline, 6000)
         },
         randomReply() {
             const random_number = Math.floor(Math.random() * (this.automatic_replies.length - 0) ) + 0;
@@ -301,6 +303,12 @@ createApp({
             const last_messageIndex = message_array.length - 1;
 
             return last_messageIndex
+        },
+        isComputerOnline() {
+            this.computerIsOnline = true
+        },
+        isComputerOffline() {
+            this.computerIsOnline = false
         }
     }
 }).mount('#app')
