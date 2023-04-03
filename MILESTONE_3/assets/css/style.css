@@ -137,6 +137,11 @@ span.enable {
     overflow-wrap: break-word;
 }
 
+.dropdown-icon {
+    visibility: hidden;
+}
+
+.dropdown-icon,
 .span_date {
     font-size: 0.45rem;
 }
