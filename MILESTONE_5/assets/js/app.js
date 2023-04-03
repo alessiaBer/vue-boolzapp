@@ -27,6 +27,7 @@ createApp({
             resultedContacts: '',
             show: false,
             dropdownShow: false,
+            currentMessage: null,
             newReceivedMessage: {
                 date: '',
                 message: 'lol',
@@ -230,8 +231,8 @@ createApp({
             new_received_message.date = now;
             this.contacts[this.activeContact].messages.push(new_received_message)
         },
-        isShow() {
-            this.show = true;
+        selectMessage(i) {
+            this.currentMessage = i
         },
         isHidden() {
             this.show = false;

@@ -89,7 +89,7 @@
                                 {{contacts[activeContact].name}}
                             </span>
                             <span class="last_access">
-                                Ultimo accesso oggi alle ore 12:00
+                                Ultimo accesso oggi alle ore ...
                             </span>
                         </div>
                     </div>
@@ -104,17 +104,18 @@
                     <div class="message m-2 d-flex gap-2 justify-content-between"
                     v-for="(element, index) in contacts[activeContact].messages"
                     :class="element.status === 'sent' ? 'sent' : 'received'"
-                    @mouseover="isShow()">
+                    @click="selectMessage(index)"
+                    @mouseleave="currentMessage = null">
                         <span class="span_message align-self-start d-flex flex-wrap">{{element.message}}</span>  
                         <div class="message_right d-flex flex-column justify-content-between">
                             <div class="dropdown_delete position-relative">
                                 <span class="dropdown-icon text-end"
-                                :class="show === true ? 'show' : 'hidden'"
+                                :class="currentMessage === index ? 'show' : 'hidden'"
                                 @click="showDropdown()">
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </span>
                                 <ul class="dropdown_menu list-unstyled position-absolute"
-                                :class="dropdownShow === true ? 'show' : 'hidden'">
+                                :class="currentMessage === index && dropdownShow === true ? 'show' : 'hidden'">
                                     <li>Message info</li>
                                     <li @click="deleteMessage(index)">Delete message</li>
                                 </ul>
@@ -123,6 +124,7 @@
                                 {{splitDate(element, index)}}
                             </span>  
                         </div>
+
                     </div>
                 </div>
                 <!-- /.chat_body -->
