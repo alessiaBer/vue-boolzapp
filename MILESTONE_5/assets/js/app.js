@@ -242,6 +242,10 @@ createApp({
             } else if (this.dropdownShow === true) {
                 this.dropdownShow = false
             }
+        },
+        deleteMessage(i) {
+            const this_message = this.contacts[this.activeContact].messages[i]
+            this.contacts[this.activeContact].messages.pop(this_message) 
         }
     }
 }).mount('#app')

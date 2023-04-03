@@ -104,8 +104,7 @@
                     <div class="message m-2 d-flex gap-2 justify-content-between"
                     v-for="(element, index) in contacts[activeContact].messages"
                     :class="element.status === 'sent' ? 'sent' : 'received'"
-                    @mouseover="isShow()"
-                    >
+                    @mouseover="isShow()">
                         <span class="span_message align-self-start d-flex flex-wrap">{{element.message}}</span>  
                         <div class="message_right d-flex flex-column justify-content-between">
                             <div class="dropdown_delete position-relative">
@@ -117,7 +116,7 @@
                                 <ul class="dropdown_menu list-unstyled position-absolute"
                                 :class="dropdownShow === true ? 'show' : 'hidden'">
                                     <li>Message info</li>
-                                    <li>Delete message</li>
+                                    <li @click="deleteMessage(index)">Delete message</li>
                                 </ul>
                             </div>
                             <span class="span_date text-end">
