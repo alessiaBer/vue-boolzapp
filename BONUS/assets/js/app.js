@@ -54,7 +54,7 @@ createApp({
             currentMessage: null,
             newReceivedMessage: {
                 date: '',
-                message: 'lol',
+                message: '',
                 status: 'received'
             },
             automatic_replies: [
@@ -262,11 +262,17 @@ createApp({
 
             setTimeout(this.receive_message, 2000);
         },
+        randomReply() {
+            const random_number = Math.floor(Math.random() * (this.automatic_replies.length - 0) ) + 0;
+            return random_number
+        },
         receive_message() {
+            const random_number = this.randomReply()
             const new_received_message = {...this.newReceivedMessage};
             const new_received_date = new Date();
             const now = [new_received_date.getHours(), (new_received_date.getMinutes()< 10 ? '0' : '') + new_received_date.getMinutes(), new_received_date.getSeconds()].join(':');
             new_received_message.date = now;
+            new_received_message.message = this.automatic_replies[random_number];
             this.contacts[this.activeContact].messages.push(new_received_message)
         },
         selectMessage(i) {
