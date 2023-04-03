@@ -115,7 +115,7 @@ span.receive {
     width: 60%;
 }
 
-.active_contact .last_access,
+.active_contact .contact_status,
 span.enable {
     font-size: 0.7rem;
 }

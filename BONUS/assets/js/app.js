@@ -289,8 +289,8 @@ createApp({
             }
         },
         deleteMessage(i) {
-            const this_message = this.contacts[this.activeContact].messages[i]
-            this.contacts[this.activeContact].messages.pop(this_message) 
+            console.log(i)
+            this.contacts[this.activeContact].messages.splice(i, 1)
         },
         lastMessage(index) {
             const message_array = this.contacts[index].messages

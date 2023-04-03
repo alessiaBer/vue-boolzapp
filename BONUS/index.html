@@ -88,9 +88,14 @@
                             <span class="contact_name d-block">
                                 {{contacts[activeContact].name}}
                             </span>
-                            <span class="last_access">
-                                Ultimo accesso oggi alle ore {{splitDate(contacts[activeContact].messages[lastMessage(activeContact)])}}
-                            </span>
+                            <!-- here sta scrivendo.. / online / ultimo accesso -->
+                            <div class="contact_status">
+                                <span id="last_access">
+                                    Ultimo accesso oggi alle ore {{splitDate(contacts[activeContact].messages[lastMessage(activeContact)])}}
+                                </span>
+                                <span id="is_writing">sta scrivendo...</span>
+                                <span id="online">online</span>
+                            </div>
                         </div>
                     </div>
                     <div class="chat_settings">
@@ -117,7 +122,7 @@
                                 <ul class="dropdown_menu list-unstyled position-absolute"
                                 :class="currentMessage === index && dropdownShow === true ? 'show' : 'hidden'">
                                     <li>Message info</li>
-                                    <li @click="deleteMessage(index)">Delete message</li>
+                                    <li @click="deleteMessage(currentMessage)">Delete message</li>
                                 </ul>
                             </div>
                             <span class="span_date text-end">
