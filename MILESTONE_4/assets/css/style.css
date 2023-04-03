@@ -107,6 +107,7 @@ span.receive {
 .chat_preview.active {
     background-color: var(--bz-active-chat);
 }
+
 /* #endregion Sidebar */
 /* #region Chat */
 #app_chat {

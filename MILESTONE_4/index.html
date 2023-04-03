@@ -43,17 +43,18 @@
                         <span class="input-group-text bg-white">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                        v-model="resultedContacts">
                     </div>
                 </div>
                 <!-- /.search_input -->
                 <div class="preview">
                     <div 
                     class="chat_preview d-flex justify-content-between p-2"
-                    :class="activeContact === index ? 'active' : ''"
+                    :class="activeContact === index ? 'active' : '', contact.name.toLowerCase().includes(resultedContacts) ? '' : 'd-none'"
                     v-for="(contact, index) in contacts"
                     @click="selectChat(index)">
-                        <div class="chat_preview_left d-flex">
+                        <div class="chat_preview_left d-flex" >
                             <img class="contact_avatar" 
                             :src="'./assets' + contact.avatar" 
                             :alt="contact.name">
