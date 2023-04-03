@@ -19,9 +19,9 @@ Milestone 5 - opzionale
 
 /* #region functionalities BONUS */
 /*Funzionalità: 
--evitare che l'utente possa inviare un messaggio vuoto o composto solamente da spazi
--A) cambiare icona in basso a destra (a fianco all'input per scrivere un nuovo messaggio) finché l'utente sta scrivendo: di default si visualizza l'icona del microfono, quando l'input non è vuoto si visualizza l'icona dell'aeroplano. Quando il messaggio è stato inviato e l'input si svuota, si torna a visualizzare il microfono. 
- B) inviare quindi il messaggio anche cliccando sull'icona dell'aeroplano
+☑️ evitare che l'utente possa inviare un messaggio vuoto o composto solamente da spazi
+☑️ A) cambiare icona in basso a destra (a fianco all'input per scrivere un nuovo messaggio) finché l'utente sta scrivendo: di default si visualizza l'icona del microfono, quando l'input non è vuoto si visualizza l'icona dell'aeroplano. Quando il messaggio è stato inviato e l'input si svuota, si torna a visualizzare il microfono. 
+☑️ B) inviare quindi il messaggio anche cliccando sull'icona dell'aeroplano
 -predisporre una lista di frasi e/o citazioni da utilizzare al posto della risposta "ok:" quando il pc risponde, anziché scrivere "ok", scegliere una frase random dalla lista e utilizzarla come testo del messaggio di risposta del pc
 -visualizzare nella lista dei contatti l'ultimo messaggio inviato/ricevuto da ciascun contatto
 -inserire l'orario corretto nei messaggi
@@ -242,10 +242,14 @@ createApp({
                 message: this.newMessage.trim(),
                 status: 'sent'
             };
-            
-            if (new_message.length > 0) {
+
+
+            if (new_message.message != '') {
                 this.contacts[i].messages.push(new_message);
+            } else {
+                return
             }
+            
             this.newMessage = ''
 
             setTimeout(this.receive_message, 2000);

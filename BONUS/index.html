@@ -133,7 +133,9 @@
                     <input type="text" class="form-control" placeholder="Scrivi un messaggio"
                     v-model="newMessage"
                     @keyup.enter="sendMessage(activeContact)">
-                    <i class="fa-solid fa-microphone"></i>
+                    <i class="fa-solid fa-paper-plane" v-if="newMessage.trim() != ''"
+                    @click="sendMessage(activeContact)"></i>
+                    <i class="fa-solid fa-microphone" v-else></i>
                 </div>
                 <!-- /.chat_input -->
             </div>
