@@ -52,6 +52,8 @@ createApp({
             show: false,
             dropdownShow: false,
             currentMessage: null,
+            computerIsWriting: false,
+            computerIsOnline: false,
             newReceivedMessage: {
                 date: '',
                 message: '',
@@ -260,7 +262,8 @@ createApp({
             
             this.newMessage = ''
 
-            setTimeout(this.receive_message, 2000);
+            this.computerIsWriting = true;
+            setTimeout(this.receive_message, 3000);
         },
         randomReply() {
             const random_number = Math.floor(Math.random() * (this.automatic_replies.length - 0) ) + 0;
@@ -273,7 +276,8 @@ createApp({
             const now = [new_received_date.getHours(), (new_received_date.getMinutes()< 10 ? '0' : '') + new_received_date.getMinutes(), new_received_date.getSeconds()].join(':');
             new_received_message.date = now;
             new_received_message.message = this.automatic_replies[random_number];
-            this.contacts[this.activeContact].messages.push(new_received_message)
+            this.contacts[this.activeContact].messages.push(new_received_message);
+            this.computerIsWriting = false
         },
         selectMessage(i) {
             this.currentMessage = i

@@ -90,11 +90,14 @@
                             </span>
                             <!-- here sta scrivendo.. / online / ultimo accesso -->
                             <div class="contact_status">
-                                <span id="last_access">
+                                <span v-if="computerIsOnline === false && computerIsWriting === false" id="last_access">
                                     Ultimo accesso oggi alle ore {{splitDate(contacts[activeContact].messages[lastMessage(activeContact)])}}
                                 </span>
-                                <span id="is_writing">sta scrivendo...</span>
-                                <span id="online">online</span>
+                                <span id="is_writing" :class="computerIsWriting === true ? 'd-block' : 'd-none'">sta scrivendo...</span>
+                                <!-- nel timeout in cui il pc risponde -->
+                                <span id="online" :class="computerIsOnline === true ? 'd-block': 'd-none'">online</span>
+                                <!-- poi mantenere la scritta "online" per un paio di secondi -->
+                                <!-- poi ultimo accesso -->
                             </div>
                         </div>
                     </div>
