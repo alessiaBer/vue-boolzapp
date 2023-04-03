@@ -13,6 +13,7 @@
 
 body {
     background: linear-gradient(180deg, rgba(62,146,135) 20%, rgba(216,219,214) 20%);
+    overflow: hidden;
 }
 /* #endregion Common */
 /* #region Utilities */
@@ -174,6 +175,7 @@ span.enable {
     width: 100px;
     padding: 0.4rem;
     font-size: 0.7rem;
+    cursor: pointer;
 }
 
 .dropdown-icon,
