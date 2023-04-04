@@ -110,7 +110,7 @@
                             <ul class="list-unstyled position-absolute"
                             :class="chat_dropdown_delete === true ? 'show' : 'hidden'">
                                 <li @click="deleteAllMessages()">Elimina messaggi</li>
-                                <li @click="deleteChat()">Elimina chat</li>
+                                <li @click="deleteChat(activeContact)">Elimina chat</li>
                             </ul>
                         </div>
                     </div>

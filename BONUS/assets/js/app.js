@@ -308,8 +308,8 @@ createApp({
         deleteAllMessages(i) {
             this.contacts[this.activeContact].messages = []
         },
-        deleteChat() {
-            
+        deleteChat(i) {
+            this.contacts.splice(i, 1)
         },
         lastMessage(index) {
             const message_array = this.contacts[index].messages
