@@ -21,6 +21,7 @@ body {
     max-width: 1000px;
     height: calc(100vh - 3rem);
     margin: 1.5rem auto;
+    box-shadow: 10px 10px 10px var(--bz-input-icons);
 }
 
 .sidebar_header,
@@ -129,6 +130,20 @@ span.receive {
 /* #region Chat */
 #app_chat {
     width: 60%;
+}
+
+.chat_container,
+.welcome_message {
+    height: 100%;
+}
+
+.welcome_message {
+    background-color: rgba(127, 255, 212, 0.803);
+    padding: 4rem 0 4rem 4rem;
+}
+
+.welcome_message img{
+    width: 100%;
 }
 
 .active_contact .contact_status,

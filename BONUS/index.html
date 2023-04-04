@@ -134,6 +134,12 @@
                 <!-- /#app_side_bar -->
 
                 <div id="app_chat">
+                    <div class="welcome_message" v-if="activeContact === -1">
+                        <img src="https://www.pngkit.com/png/full/840-8404276_report-abuse-pc-aesthetic-png.png" alt="">
+                        <h5>Hey Alessia</h5>
+                        <p>Scegli un contatto dalla lista per visualizzare i suoi messaggi 😉</p>
+                    </div>
+                    <div class="chat_container" v-else>
                     <div class="chat_header d-flex justify-content-between
                         align-items-center">
                         <div class="active_contact d-flex">
@@ -240,6 +246,7 @@
                     <!-- /.chat_input -->
                 </div>
                 <!-- /#app_chat -->
+            </div>
             </div>
             <!-- /#app_container -->
         </div>
