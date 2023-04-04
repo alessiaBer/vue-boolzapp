@@ -348,6 +348,6 @@ createApp({
         }
     },
     mounted() {
-        setTimeout(this.hideSplashPage, 3000)
+        setTimeout(this.hideSplashPage, 1000)
     }
 }).mount('#app')
