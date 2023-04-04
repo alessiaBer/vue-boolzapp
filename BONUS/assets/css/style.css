@@ -45,7 +45,8 @@ span.receive {
     font-size: 0.9rem;
 }
 
-[class$="_settings"] > i {
+[class$="_settings"] > i,
+.delete_chat_dropdown > i {
     color: var(--bz-header-icons);
     font-size: 1.2rem;
     padding: 0 0.5rem;
@@ -152,7 +153,8 @@ span.enable {
     height: 13px;
 }
 
-.sent .dropdown_menu {
+.sent .dropdown_menu,
+.delete_chat_dropdown ul {
     top: 100%;
     right: 0;
     text-align: end;
@@ -171,7 +173,8 @@ span.enable {
     z-index: 10000;
 }
 
-.dropdown_menu  li {
+.dropdown_menu li,
+.delete_chat_dropdown li {
     width: 100px;
     padding: 0.4rem;
     font-size: 0.7rem;

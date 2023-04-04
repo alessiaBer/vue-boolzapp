@@ -63,13 +63,13 @@
                                     {{contact.name}}
                                 </span>
                                 <span class="last_message_text">
-                                    {{contact.messages[lastMessage(index)].message}}
+                                    <!-- {{contact.messages[lastMessage(index)].message}} -->
                                 </span>
                             </div>
                         </div>
                         <div class="chat_preview_right">
                             <div class="last_message_time">
-                                {{splitDate(contact.messages[lastMessage(index)], index)}}
+                                <!--{{splitDate(contact.messages[lastMessage(index)], index)}} -->
                             </div>
                         </div>
                     </div>
@@ -89,9 +89,9 @@
                                 {{contacts[activeContact].name}}
                             </span>
                             <!-- here sta scrivendo.. / online / ultimo accesso -->
-                            <div class="contact_status">
+                            <div v-if="contacts[activeContact].messages.length > 0" class="contact_status">
                                 <span v-if="computerIsOnline === false && computerIsWriting === false" id="last_access">
-                                    Ultimo accesso oggi alle ore {{splitDate(contacts[activeContact].messages[lastMessage(activeContact)])}}
+                                    Ultimo accesso oggi alle ore <!--{{splitDate(contacts[activeContact].messages[lastMessage(activeContact)])}}-->
                                 </span>
                                 <span id="is_writing" :class="computerIsWriting === true ? 'd-block' : 'd-none'">sta scrivendo...</span>
                                 <!-- nel timeout in cui il pc risponde -->
@@ -104,7 +104,15 @@
                     <div class="chat_settings">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <!-- here dropdown to delete single msg or chat -->
+                        <div class="delete_chat_dropdown d-inline-block position-relative">
+                            <i class="fa-solid fa-ellipsis-vertical" @click="showChatDropdown()"></i>
+                            <ul class="list-unstyled position-absolute"
+                            :class="chat_dropdown_delete === true ? 'show' : 'hidden'">
+                                <li @click="deleteAllMessages()">Elimina messaggi</li>
+                                <li @click="deleteChat()">Elimina chat</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- /.chat_header -->
