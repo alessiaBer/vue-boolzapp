@@ -79,18 +79,18 @@
                                     </div>
                                     <div class="modal-body">
                                         <label class="pb-2" for="id_contact">Nome Contatto</label>
-                                        <input type="text" class="form-control" id="id_contact">
+                                        <input type="text" class="form-control" id="id_contact" v-model="newContactName">
                                         <label for="basic-url" class="form-label pt-3">URL immagine</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon3">https://</span>
-                                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+                                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" v-model="newContactAvatar">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" @click="modal = false">
                                             Annulla
                                         </button>
-                                        <button type="button" class="btn btn-primary">
+                                        <button type="button" class="btn btn-primary" @click="addNewContact(); modal = false">
                                             Aggiungi
                                         </button>
                                     </div>

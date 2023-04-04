@@ -110,7 +110,7 @@ span.receive {
     font-size: 1.2rem;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
-    margin-right: 0.5rem;
+    margin: 0 1rem 0 0.3rem;
 }
 
 .chat_preview [class*="last_message_"] {

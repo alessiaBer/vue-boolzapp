@@ -49,7 +49,10 @@ createApp({
             newMessage: '',
             activeContact: 0,
             addContact: false,
+            newContactName: '',
+            newContactAvatar: '',
             modal: false,
+            newContactName: '',
             resultedContacts: '',
             show: false,
             dropdownShow: false,
@@ -248,7 +251,15 @@ createApp({
             this.addContact = true;
         },
         addNewContact() {
-            
+            const new_contact = 
+            {
+                name: this.newContactName,
+                avatar: this.newContactAvatar,
+                visible: true,
+                messages: []
+            }
+
+            this.contacts.unshift(new_contact)
         },
         selectChat(i) {
             this.activeContact = i
