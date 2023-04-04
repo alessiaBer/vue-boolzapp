@@ -41,6 +41,7 @@ body {
 
 .my_name,
 .contact_info > .contact_name,
+.add_contact_span,
 span.receive {
     font-size: 0.9rem;
 }
@@ -82,7 +83,6 @@ span.receive {
     padding: 0.3rem;
 }
 
-
 .input-group-text,
 .input-group input,
 .last_message_text,
@@ -96,10 +96,21 @@ span.receive {
     background-color: var(--bz-light);
 }
 
-.chat_preview {
+.chat_preview,
+.add_contact {
     height: 60px;
     background-color: var(--bz-light);
     border-top: 1px solid var(--bz-active-chat);
+}
+
+.add_contact i {
+    color: var(--bz-light);
+    background-color: var(--bs-primary);
+    padding: 0.3rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    margin-right: 0.5rem;
 }
 
 .chat_preview [class*="last_message_"] {
@@ -110,6 +121,10 @@ span.receive {
     background-color: var(--bz-active-chat);
 }
 
+.modal-body > label,
+.modal-body input {
+    font-size: 0.8rem
+}
 /* #endregion Sidebar */
 /* #region Chat */
 #app_chat {

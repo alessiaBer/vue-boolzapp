@@ -48,6 +48,8 @@ createApp({
         return {
             newMessage: '',
             activeContact: 0,
+            addContact: false,
+            modal: false,
             resultedContacts: '',
             show: false,
             dropdownShow: false,
@@ -241,6 +243,12 @@ createApp({
             const no_sec_time = no_sec_array.join(':')
 
             return no_sec_time
+        },
+        showAddContact() {
+            this.addContact = true;
+        },
+        addNewContact() {
+            
         },
         selectChat(i) {
             this.activeContact = i
