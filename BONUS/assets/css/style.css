@@ -19,8 +19,7 @@ body {
 /* #region Utilities */
 #app_container {
     max-width: 1000px;
-    height: calc(100vh - 3rem);
-    margin: 1.5rem auto;
+    height: 100vh;
     box-shadow: 10px 10px 10px var(--bz-input-icons);
 }
 
@@ -61,7 +60,7 @@ span.receive {
 /* #endregion Utilities */
 /* #region Sidebar */
 #app_side_bar {
-    width: 40%;
+    width: 100%;
 }
 
 .enable_alert {
@@ -134,7 +133,8 @@ span.receive {
 /* #endregion Sidebar */
 /* #region Chat */
 #app_chat {
-    width: 60%;
+    width: 100%;
+    height: 100%;
 }
 
 .chat_container,
@@ -237,3 +237,37 @@ span.enable {
     color: var(--bz-input-icons);
 }
 /* #endregion Chat */
+
+@media screen and (min-width: 768px) {
+    #app_container {
+        display: flex;
+        width: 100%;
+    }
+
+    #app_side_bar {
+        width: 40%;
+        display: block !important;
+    }
+
+    #app_chat {
+        width: 60%;
+        display: block !important;
+    }
+
+    .return {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 993px) {
+    #app_container {
+        margin: auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #app_container {
+        margin: 1.5rem auto;
+        height: calc(100vh - 3rem);
+    }
+}
