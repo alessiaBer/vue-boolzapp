@@ -108,8 +108,7 @@
                             class="chat_preview d-flex justify-content-between
                             p-2"
                             :class="activeContact === index ? 'active' : '',
-                            contact.name.toLowerCase().includes(resultedContacts)
-                            ? '' : 'd-none'"
+                            matchedContacts(index)"
                             v-for="(contact, index) in contacts"
                             @click="selectChat(index); hideSidebar()">
                             <div class="chat_preview_left d-flex">
@@ -123,15 +122,14 @@
                                     </span>
                                     <span v-if="contact.messages.length> 0"
                                         class="last_message_text">
-                                        {{contact.messages[lastMessage(index)].message}}
+                                        {{lastMessage(index).message}}
                                     </span>
                                 </div>
                             </div>
                             <div class="chat_preview_right">
-                                <div v-if="contact.messages.length> 0"
+                                <div v-if="contact.messages.length > 0"
                                     class="last_message_time">
-                                    {{splitDate(contact.messages[lastMessage(index)],
-                                    index)}}
+                                    {{splitDate(lastMessage(index))}}
                                 </div>
                             </div>
                         </div>
@@ -175,7 +173,7 @@
                                         computerIsWriting === false"
                                         id="last_access">
                                         Ultimo accesso oggi alle ore
-                                        {{splitDate(contacts[activeContact].messages[lastMessage(activeContact)])}}
+                                        {{splitDate(lastMessage(activeContact))}}
                                     </span>
                                     <span id="is_writing"
                                         :class="computerIsWriting === true ?
@@ -239,7 +237,7 @@
                                     </ul>
                                 </div>
                                 <span class="span_date text-end">
-                                    {{splitDate(element, index)}}
+                                    {{splitDate(element)}}
                                 </span>
                             </div>
 

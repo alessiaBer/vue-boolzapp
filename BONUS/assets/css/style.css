@@ -122,10 +122,6 @@ span.receive {
     color: var(--bz-input-icons);
 }
 
-.chat_preview.active {
-    background-color: var(--bz-active-chat);
-}
-
 .modal-body > label,
 .modal-body input {
     font-size: 0.8rem
@@ -247,6 +243,10 @@ span.enable {
     #app_side_bar {
         width: 40%;
         display: block !important;
+    }
+
+    .chat_preview.active {
+        background-color: var(--bz-active-chat);
     }
 
     #app_chat {
