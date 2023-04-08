@@ -14,6 +14,8 @@
             rel="stylesheet"
             integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
             crossorigin="anonymous">
+        <script src="./assets/js/emoji-picker.js" type="module"></script>
+        <link rel="stylesheet" href="./assets/js/style.css">
         <link rel="stylesheet" href="./assets/css/style.css">
     </head>
     <body>
@@ -245,7 +247,11 @@
                     </div>
                     <!-- /.chat_body -->
                     <div class="chat_input d-flex align-items-center">
-                        <i class="fa-regular fa-face-smile"></i>
+                        <div class="emoji_picker_container">
+                            <i class="fa-regular fa-face-smile" @click="showEmojiPicker"></i>
+                            <!--emoji-->
+                            <Picker @select="onSelectEmoji" class="my_emoji_class" :class="showEmoji === false ? 'd-none' : 'd-flex'"/>
+                        </div>
                         <input type="text" class="form-control"
                             placeholder="Scrivi un messaggio"
                             v-model="newMessage"
@@ -264,6 +270,6 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.min.js"></script>
-        <script src="./assets/js/app.js"></script>
+        <script src="./assets/js/app.js" type="module"></script>
     </body>
 </html>

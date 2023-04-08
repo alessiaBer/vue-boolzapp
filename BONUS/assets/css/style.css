@@ -161,7 +161,7 @@ span.enable {
 }
 
 .chat_body .message {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     padding: 0.4rem;
     border-radius: 0.5rem;
     max-width: 60%;
@@ -233,6 +233,17 @@ span.enable {
     color: var(--bz-input-icons);
 }
 /* #endregion Chat */
+
+.emoji_picker_container {
+    position: relative;
+}
+
+.my_emoji_class {
+    position: absolute;
+    bottom: 100%;
+}
+
+
 
 @media screen and (min-width: 768px) {
     #app_container {

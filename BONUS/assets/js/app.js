@@ -40,6 +40,7 @@ Milestone 5 - opzionale
 -aggiungere un'icona per ingrandire o rimpicciolire il font: dovrebbe essere sufficiente aggiungere una classe al wrapper principale
 -aggiungere un'icona per cambiare la modalità light/dark: dovrebbe essere sufficiente aggiungere una classe al wrapper principale*/
 /* #endregion graphic BONUS */
+import Picker from './emoji-picker.js';
 
 const { createApp } = Vue
 
@@ -62,6 +63,7 @@ createApp({
             currentMessage: null,
             computerIsWriting: false,
             computerIsOnline: false,
+            showEmoji: false,
             newReceivedMessage: {
                 date: '',
                 message: '',
@@ -352,9 +354,30 @@ createApp({
         },
         matchedContacts(i) {
             return this.contacts[i].name.toLowerCase().includes(this.resultedContacts) ? '' : 'd-none'
+        },
+        showEmojiPicker() {
+            if (this.showEmoji === false) {
+                this.showEmoji = true;
+            } else if (this.showEmoji === true) {
+                this.showEmoji = false
+            }
+        }, 
+        onSelectEmoji(emoji) {
+            //console.log(emoji)
+            this.newMessage += emoji.i;
+            /*
+              // result
+              { 
+                  i: "😚", 
+                  n: ["kissing face"], 
+                  r: "1f61a", // with skin tone
+                  t: "neutral", // skin tone
+                  u: "1f61a" // without tone
+              }
+              */
         }
     },
     mounted() {
         setTimeout(this.hideSplashPage, 1000)
     }
-}).mount('#app')
+}).component('Picker', Picker).mount('#app')
