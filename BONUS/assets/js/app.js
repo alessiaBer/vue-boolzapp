@@ -29,7 +29,7 @@ Milestone 5 - opzionale
 ☑️ dare la possibilità all'utente di cancellare tutti i messaggi di un contatto o di cancellare l'intera chat con tutti i suoi dati: cliccando sull'icona con i tre pallini in alto a destra, si apre un dropdown menu in cui sono presenti le voci "Elimina messaggi" ed "Elimina chat"; cliccando su di essi si cancellano rispettivamente tutti i messaggi di quel contatto (quindi rimane la conversazione vuota) oppure l'intera chat comprensiva di tutti i dati del contatto oltre che tutti i suoi messaggi (quindi sparisce il contatto anche dalla lista di sinistra)
 ☑️ dare la possibilità all'utente di aggiungere una nuova conversazione, inserendo in un popup il nome e il link all'icona del nuovo contatto
 -fare scroll in giù in automatico fino al messaggio più recente, quando viene aggiunto un nuovo messaggio alla conversazione (NB: potrebbe esserci bisogno di utilizzare nextTick - vedi documentazione Vue3)
--aggiungere le emoticons, tramite l'utilizzo di una libreria, ad esempio: https://www.npmjs.com/package/vue-emoji-picker*/
+☑️ aggiungere le emoticons, tramite l'utilizzo di una libreria, ad esempio: https://www.npmjs.com/package/vue-emoji-picker*/
 /* #endregion functionalities BONUS */
 /* #region graphic BONUS */
 /*Grafica:
@@ -47,6 +47,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            bottom: '',
             splashPage: true,
             isSideBarShow: true,
             newMessage: '',
@@ -286,10 +287,23 @@ createApp({
             
             this.newMessage = ''
 
+            this.updateScrollNextTick()
+
             this.computerIsWriting = true;
             setTimeout(this.receive_message, 3000);
             setTimeout(this.isComputerOnline, 3000);
-            setTimeout(this.isComputerOffline, 6000)
+            setTimeout(this.isComputerOffline, 6000);
+
+        },
+        updateScrollNextTick () {
+            let scrolledHeight = this.$refs.chatBody.clientHeight
+    
+            this.$nextTick(() => {
+              this.$refs.chatBody.scrollTo({
+                behavior: 'smooth',
+                top: scrolledHeight
+              })
+            })
         },
         randomReply() {
             const random_number = Math.floor(Math.random() * (this.automatic_replies.length - 0) ) + 0;
@@ -304,6 +318,7 @@ createApp({
             new_received_message.message = this.automatic_replies[random_number];
             this.contacts[this.activeContact].messages.push(new_received_message);
             this.computerIsWriting = false
+            this.updateScrollNextTick()
         },
         selectMessage(i) {
             this.currentMessage = i
@@ -379,5 +394,6 @@ createApp({
     },
     mounted() {
         setTimeout(this.hideSplashPage, 1000)
+        /*this.updateScrollNextTick() */
     }
 }).component('Picker', Picker).mount('#app')
