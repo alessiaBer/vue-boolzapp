@@ -15,6 +15,7 @@ body {
     background: linear-gradient(180deg, rgba(62,146,135) 20%, rgba(216,219,214) 20%);
     overflow: hidden;
 }
+
 /* #endregion Common */
 /* #region Utilities */
 #app_container {
@@ -243,7 +244,55 @@ span.enable {
     bottom: 100%;
 }
 
+/* darkmode */
+:root:has(#app_container.dark) {
+    --bz-background-light: #d8dbd6;
+    --bz-background-dark: #3e9287;
+    --bz-header-bg: #202c33;
+    --bz-active-chat: #2a3942;
+    --bz-header-icons: #b1b1b1;
+    --bz-enable-alert: #9cdaf8;
+    --bz-input-icons: #6c7375;
+    --bz-light: #000;
+    --bz-sent-mex: #005c4b;
+}
 
+body:has(#app_container.dark) {
+    background: #111b21;
+}
+
+.dark .chat_body {
+    color: #fff;
+}
+
+.dark .my_avatar,
+.dark .chat_body,
+.dark .chat_header {
+    color: white;
+}
+
+.dark .input-group,
+.dark .search_input,
+.dark .form-control,
+.dark .input-group-text {
+    color: #fff !important;
+    background-color: var(--bz-header-bg) !important;
+}
+
+.dark .chat_preview_left .contact_name,
+.dark .add_contact_span{
+    color: #fff !important;
+}
+
+.dark *::placeholder {
+    color: #fff;
+}
+
+.dark .chat_body {
+    background: #0b141a url('../img/chat_bg.png');
+  background-blend-mode: overlay;
+}
+/* /darkmode */
 
 @media screen and (min-width: 768px) {
     #app_container {

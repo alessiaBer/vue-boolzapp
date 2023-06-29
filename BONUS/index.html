@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="icon" type="image/svg+xml" href="https://pixlok.com/wp-content/uploads/2021/12/WhastApp-Icon-SVG-ij8yghj.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Vue Boolzapp</title>
         <link rel="stylesheet"
@@ -28,7 +29,7 @@
                 <span>Powered by AI</span>
                 <img class="w-25" src="https://i.gifer.com/YCZH.gif" alt="">
             </div>
-            <div id="app_container" v-else>
+            <div id="app_container" :class="darkMode == true ? 'dark' : ''" v-else>
                 <div id="app_side_bar" :class="'container-sm' && isSideBarShow === false ? 'd-none' : 'd-block'">
                     <div class="sidebar_header d-flex justify-content-between
                         align-items-center">
@@ -41,6 +42,8 @@
                             <i class="fa-solid fa-circle-notch"></i>
                             <i class="fa-solid fa-message"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <i class="fa-solid fa-circle-half-stroke"
+                            @click="darkMode = !darkMode"></i>
                         </div>
                     </div>
                     <!-- /.sidebar_header -->
@@ -60,7 +63,7 @@
                     <!-- /.enable_alert -->
                     <div class="search_input d-flex align-items-center">
                         <div class="input-group">
-                            <span class="input-group-text bg-white">
+                            <span class="input-group-text">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
                             <input type="text" class="form-control"
